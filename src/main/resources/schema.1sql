@@ -1,0 +1,19 @@
+drop table if exists chapter cascade;
+drop table if exists lesson cascade;
+drop sequence if exists chapter_seq;
+drop sequence if exists lesson_seq;
+create sequence chapter_seq start with 1 increment by 50;
+create sequence lesson_seq start with 1 increment by 50;
+create table chapter
+(
+    id   bigint not null,
+    name varchar(255),
+    primary key (id)
+);
+create table lesson
+(
+    id         bigint not null,
+    name       varchar(255),
+    chapter_id bigint,
+    primary key (id)
+);
